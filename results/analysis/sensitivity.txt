@@ -1,0 +1,28 @@
+knob                       pref         mean span    max span  verdict
+                                             (pp)        (pp)
+------------------------------------------------------------------------------
+stride_pref_degree         stride          27.3pp       91.0pp  TUNE  (moves perf)
+streamer_pref_degree       streamer        17.9pp       70.8pp  TUNE  (moves perf)
+spp_dev2_fill_threshold    spp_dev2        17.2pp       67.0pp  TUNE  (moves perf)
+spp_dev2_pf_threshold      spp_dev2        16.1pp       44.8pp  TUNE  (moves perf)
+bingo_pht_size             bingo            2.4pp        9.1pp  TUNE  (moves perf)
+bingo_l2c_thresh           bingo            0.9pp        4.7pp  freeze (flat)
+
+span = (maximum speedup - minimum speedup) x 100 percentage points;
+it is not a relative percent change between the endpoint configurations.
+
+== per-trace speedup across 'stride_pref_degree' values ==
+trace         default        1        4        8       16
+GemsFDTD       1.0479   1.0000   1.0515   1.0545   1.0456
+astar          1.0028   1.0000   1.0028   1.0024   1.0017
+bwaves         1.3830   1.0000   1.9097   1.8339   1.6811
+gcc            1.0010   1.0000   1.0017   1.0026   1.0035
+lbm            1.0624   1.0000   1.0695   1.0809   1.0712
+leslie3d       1.5018   1.0000   1.6859   1.7488   1.7421
+libquantum     1.0709   1.0000   1.3880   1.7163   1.7963
+mcf            1.0000   1.0000   1.0001   1.0001   1.0000
+milc           1.4246   1.0000   1.5039   1.5524   1.5809
+omnetpp        1.0062   1.0000   1.0077   1.0082   1.0098
+sjeng          1.0000   1.0000   1.0000   1.0000   1.0000
+soplex         1.1768   1.0000   1.2510   1.3137   1.3552
+xalancbmk      1.0027   1.0000   1.0031   1.0031   1.0024

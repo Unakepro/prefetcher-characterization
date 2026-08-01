@@ -1,0 +1,8 @@
+== cumulative-prefix stability of default prefetcher choice ==
+prefix IPC is taken from ChampSim's post-warmup cumulative heartbeat; this checks within-ROI stability, not phase representativeness.
+     ROI    Basis A    Basis B
+     50M      3.64%      0.85%
+    100M      3.65%      0.89%
+    150M      3.58%      0.85%
+Basis A per-trace raw argmax vector stable across prefixes: yes
+Basis B per-trace raw argmax vector stable across prefixes: yes

@@ -1,0 +1,57 @@
+
+===== SPP pf x fill grid =====
+  best FIXED pf_fill: pf20_fill50  (geomean speedup 1.2858)
+  per-trace CEILING           :          1.2886
+  TUNING SELECTION GAIN       :          +0.22%
+  per-trace optimal pf_fill (heterogeneity):
+    GemsFDTD     pf20_fill50    1.3033
+    astar        pf20_fill50    1.0054
+    bwaves       pf40_fill50    1.9355  <- differs from fixed
+    gcc          pf20_fill50    1.0057
+    lbm          pf20_fill70    1.3835  <- differs from fixed
+    leslie3d     pf20_fill50    1.8251
+    libquantum   pf20_fill50    1.7549
+    mcf          pf80_fill90    0.9993  <- differs from fixed
+    milc         pf20_fill70    1.7315  <- differs from fixed
+    omnetpp      pf20_fill50    1.0968
+    sjeng        pf20_fill50    1.0000
+    soplex       pf20_fill70    1.2542  <- differs from fixed
+    xalancbmk    pf40_fill50    1.0042  <- differs from fixed
+
+===== stride degree =====
+  best FIXED degree: 8  (geomean speedup 1.2182)
+  per-trace CEILING           :          1.2312
+  TUNING SELECTION GAIN       :          +1.07%
+  per-trace optimal degree (heterogeneity):
+    GemsFDTD     8              1.0545
+    astar        2(default)     1.0028  <- differs from fixed
+    bwaves       4              1.9097  <- differs from fixed
+    gcc          16             1.0035  <- differs from fixed
+    lbm          8              1.0809
+    leslie3d     8              1.7488
+    libquantum   16             1.7963  <- differs from fixed
+    mcf          4              1.0001  <- differs from fixed
+    milc         16             1.5809  <- differs from fixed
+    omnetpp      16             1.0098  <- differs from fixed
+    sjeng        2(default)     1.0000  <- differs from fixed
+    soplex       16             1.3552  <- differs from fixed
+    xalancbmk    8              1.0031
+
+===== streamer degree =====
+  best FIXED degree: 5(default)  (geomean speedup 1.2382)
+  per-trace CEILING           :          1.2630
+  TUNING SELECTION GAIN       :          +2.00%
+  per-trace optimal degree (heterogeneity):
+    GemsFDTD     1              1.1455  <- differs from fixed
+    astar        4              1.0039  <- differs from fixed
+    bwaves       4              1.9034  <- differs from fixed
+    gcc          16             1.0116  <- differs from fixed
+    lbm          16             1.3705  <- differs from fixed
+    leslie3d     16             1.7138  <- differs from fixed
+    libquantum   16             1.7789  <- differs from fixed
+    mcf          1              0.9977  <- differs from fixed
+    milc         5(default)     1.4092
+    omnetpp      5(default)     1.0854
+    sjeng        5(default)     1.0000
+    soplex       16             1.4657  <- differs from fixed
+    xalancbmk    4              1.0056  <- differs from fixed

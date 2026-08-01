@@ -1,0 +1,21 @@
+== default-configuration prefetch diagnostics ==
+values are arithmetic means of per-trace ratios/rates over 13 selected traces
+pref          issued    filled    useful   useless  issue-yld  fill-util     late LLC overpred
+stride        18.441     5.189     4.879     0.310    23.687%    77.373%  11.356%       1.903%
+streamer      55.331    15.211     8.646     6.562    16.433%    52.509%   7.305%      40.759%
+spp_dev2      54.586     3.882     3.745     0.137     5.887%    81.758%  14.215%      18.121%
+bingo        110.849    10.187     8.336     1.849    39.194%    69.383%   4.330%     164.255%
+ipcp          59.434    28.966     2.227    26.722        n/a        n/a  15.322%     142.837%
+
+rates are L2 events per 1,000 measured instructions. LLC overpred is (candidate LLC load misses + candidate LLC prefetch misses - baseline LLC load misses) / baseline LLC load misses.
+Native IPCP's L2 issued/fill cohorts mix request origins, so its issue-yield and fill-utilization are intentionally reported as n/a.
+Overprediction measures extra read traffic; it does not prove cache pollution or explain channel-count sensitivity by itself.
+
+== trace-level association with channel-count sensitivity ==
+Pearson r(overprediction, one-channel/two-channel normalized-benefit change), n=13 per prefetcher:
+  stride       0.130
+  streamer     0.077
+  spp_dev2     0.205
+  bingo        0.203
+  ipcp         0.273
+These small-sample correlations are descriptive and do not establish a causal overprediction mechanism.

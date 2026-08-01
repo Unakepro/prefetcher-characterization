@@ -1,0 +1,76 @@
+== observed resource pressure (serviced DRAM transactions) ==
+extra DRAM BPKI is candidate total minus matched nopref total; it does not separate useful prefetches, overprediction, or pollution.
+trace        pref       benefit delta  extra1 BPKI  extra2 BPKI dbus1 delta/ki
+GemsFDTD     stride         +0.1%        0.833        0.833        0.639
+GemsFDTD     streamer       -1.2%        7.987        7.987        7.906
+GemsFDTD     spp_dev2       +0.5%        1.318        1.323        3.879
+GemsFDTD     bingo          -0.4%        3.363        3.358        7.659
+GemsFDTD     ipcp           -0.8%        5.233        5.235        6.152
+astar        stride         -0.0%        0.014        0.014        0.004
+astar        streamer       -0.0%        0.197        0.197        0.127
+astar        spp_dev2       +0.0%        0.189        0.186        0.056
+astar        bingo          -0.1%        2.654        2.655        1.783
+astar        ipcp           -0.0%        1.265        1.264        0.314
+bwaves       stride         +2.6%       -0.000       -0.000        1.109
+bwaves       streamer       +3.2%       -0.000       -0.000        3.811
+bwaves       spp_dev2       +2.9%        0.053        0.053        8.983
+bwaves       bingo          -2.7%       -0.000       -0.000       14.310
+bwaves       ipcp           +4.4%        0.034        0.034        4.050
+gcc          stride         +0.0%        0.003        0.003        0.003
+gcc          streamer       +0.0%        0.112        0.112        0.116
+gcc          spp_dev2       +0.0%        0.024        0.024        0.016
+gcc          bingo          +0.0%        0.168        0.168        0.231
+gcc          ipcp           +0.0%        0.185        0.185        0.101
+lbm          stride         -1.3%       -0.000        0.001        1.513
+lbm          streamer       -9.2%       -0.004        0.000        6.191
+lbm          spp_dev2      -12.7%        0.842        0.845        8.668
+lbm          bingo         -13.5%       -0.022       -0.011        9.087
+lbm          ipcp          -14.0%       -0.007        0.007        7.906
+leslie3d     stride         -0.3%        0.100        0.100        0.419
+leslie3d     streamer       -1.1%        0.634        0.634        1.987
+leslie3d     spp_dev2       -0.6%        0.199        0.182        1.977
+leslie3d     bingo          -1.3%        0.178        0.177        5.425
+leslie3d     ipcp           -1.5%        0.339        0.335        2.401
+libquantum   stride         -2.6%        0.000       -0.000        1.877
+libquantum   streamer       -7.9%       -0.000        0.000        5.570
+libquantum   spp_dev2       -7.4%        0.802        0.802        9.260
+libquantum   bingo         -17.0%        0.002        0.002       15.120
+libquantum   ipcp          -12.6%        0.010        0.009       11.552
+mcf          stride         -0.0%        0.036        0.037        0.018
+mcf          streamer       +0.1%       10.231       10.241        7.451
+mcf          spp_dev2       +0.2%        7.158        7.173        3.457
+mcf          bingo          -7.4%      369.381      367.170      285.714
+mcf          ipcp           +4.7%       71.338       66.246       42.001
+milc         stride         -5.9%        0.018        0.018       -0.289
+milc         streamer       -6.2%       17.532       17.532       17.948
+milc         spp_dev2       -1.7%        2.605        2.645        3.823
+milc         bingo          -6.4%        0.049        0.049        5.964
+milc         ipcp           -4.2%        7.231        7.316        6.719
+omnetpp      stride         -0.0%        0.134        0.132        0.128
+omnetpp      streamer       -0.1%        8.985        9.013        9.116
+omnetpp      spp_dev2       -0.0%        3.566        3.578        3.023
+omnetpp      bingo          -0.6%       16.066       16.094       17.597
+omnetpp      ipcp           -0.4%       20.230       20.255       14.804
+sjeng        stride         +0.0%        0.001        0.001        0.000
+sjeng        streamer       +0.0%        0.009        0.009        0.003
+sjeng        spp_dev2       +0.0%        0.002        0.002        0.000
+sjeng        bingo          -0.0%        0.446        0.446        0.361
+sjeng        ipcp           +0.0%        0.743        0.743        0.611
+soplex       stride         -1.5%        1.213        1.191        1.906
+soplex       streamer       -5.7%        9.427        9.406       12.137
+soplex       spp_dev2       -3.3%        9.427        9.377        8.400
+soplex       bingo          -6.4%       27.989       28.067       34.572
+soplex       ipcp           -6.1%       10.979       10.828       15.073
+xalancbmk    stride         +0.0%        0.017        0.017        0.013
+xalancbmk    streamer       -0.1%        0.535        0.535        0.478
+xalancbmk    spp_dev2       -0.0%        0.485        0.478        0.306
+xalancbmk    bingo          -0.1%        1.888        1.888        1.920
+xalancbmk    ipcp           -0.1%        4.218        4.224        2.639
+
+== arithmetic means and trace-level correlations ==
+pref       benefit delta     extra1     extra2 corr(delta,extra1) corr(delta,cong1)
+stride         -0.7%      0.182      0.181           -0.035          -0.009
+streamer       -2.2%      4.280      4.282           -0.193          -0.502
+spp_dev2       -1.7%      2.052      2.051           -0.032          -0.542
+bingo          -4.3%     32.474     32.313           -0.162          -0.211
+ipcp           -2.4%      9.369      8.976            0.389           0.125

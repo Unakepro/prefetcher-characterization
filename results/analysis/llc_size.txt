@@ -1,0 +1,23 @@
+== geomean prefetch speedup vs LLC size ==
+pref            1MB      2MB      4MB   trend
+stride       1.1186   1.1168   1.1142   shrinks with cache
+streamer     1.2405   1.2382   1.2352   shrinks with cache
+spp_dev2     1.2478   1.2408   1.2227   shrinks with cache
+bingo        1.2370   1.2468   1.2572   grows with cache
+ipcp         1.3231   1.3262   1.3306   grows with cache
+
+== cache-sensitivity per trace (nopref IPC, 1MB -> 4MB) ==
+trace             1MB      2MB      4MB    swing  class
+GemsFDTD       0.4517   0.4523   0.4517    -0.0%  insensitive
+astar          0.5219   0.5306   0.5367    +2.8%  insensitive
+bwaves         0.6087   0.6093   0.6113    +0.4%  insensitive
+gcc            1.3717   1.3751   1.3763    +0.3%  insensitive
+lbm            0.4869   0.4846   0.5168    +6.1%  insensitive
+leslie3d       0.5786   0.5794   0.5826    +0.7%  insensitive
+libquantum     0.5088   0.5138   0.5241    +3.0%  insensitive
+mcf            0.0751   0.0824   0.0884   +17.6%  CACHE-SENSITIVE
+milc           0.4168   0.4188   0.4281    +2.7%  insensitive
+omnetpp        0.2416   0.2501   0.2600    +7.6%  insensitive
+sjeng          0.5240   0.5247   0.5254    +0.3%  insensitive
+soplex         0.2515   0.2775   0.3401   +35.2%  CACHE-SENSITIVE
+xalancbmk      0.5676   0.5808   0.5902    +4.0%  insensitive

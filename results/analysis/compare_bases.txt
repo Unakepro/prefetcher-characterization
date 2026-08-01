@@ -1,0 +1,68 @@
+
+===== BASIS A (common L2 placement; IPCP ineligible) =====
+trace              bingo    spp_dev2    streamer      stride   winner
+GemsFDTD          1.2477      1.2413      1.1362      1.0479   bingo
+astar             1.0024      1.0038      1.0038      1.0028   spp_dev2
+bwaves            1.6051      1.8355      1.8831      1.3830   streamer
+gcc               1.0116      1.0025      1.0086      1.0010   bingo
+lbm               1.4003      1.3623      1.2789      1.0624   bingo
+leslie3d          1.7315      1.7449      1.7040      1.5018   spp_dev2
+libquantum        1.8214      1.5704      1.5903      1.0709   bingo
+mcf               0.8294      0.9808      0.9922      1.0000   stride
+milc              1.5124      1.5751      1.4092      1.4246   spp_dev2
+omnetpp           1.1745      1.0577      1.0854      1.0062   bingo
+sjeng             1.0011      1.0000      1.0000      1.0000   bingo
+soplex            1.3326      1.1800      1.4049      1.1768   streamer
+xalancbmk         0.9977      1.0017      1.0052      1.0027   streamer
+-- geomean --
+  bingo        1.2468  <- best fixed
+  spp_dev2     1.2408
+  streamer     1.2382
+  stride       1.1168
+  BEST PER TRACE 1.2914
+  SELECTION GAIN +3.58%  (over best fixed 'bingo')
+
+===== BASIS B (released/native placements; IPCP@L1D+L2) =====
+trace              bingo    spp_dev2    streamer      stride        ipcp   winner
+GemsFDTD          1.2477      1.2413      1.1362      1.0479      1.3022   ipcp
+astar             1.0024      1.0038      1.0038      1.0028      1.0058   ipcp
+bwaves            1.6051      1.8355      1.8831      1.3830      2.0356   ipcp
+gcc               1.0116      1.0025      1.0086      1.0010      1.0138   ipcp
+lbm               1.4003      1.3623      1.2789      1.0624      1.3776   bingo
+leslie3d          1.7315      1.7449      1.7040      1.5018      1.9032   ipcp
+libquantum        1.8214      1.5704      1.5903      1.0709      1.7692   bingo
+mcf               0.8294      0.9808      0.9922      1.0000      1.1324   ipcp
+milc              1.5124      1.5751      1.4092      1.4246      1.6989   ipcp
+omnetpp           1.1745      1.0577      1.0854      1.0062      1.1091   bingo
+sjeng             1.0011      1.0000      1.0000      1.0000      0.9994   bingo
+soplex            1.3326      1.1800      1.4049      1.1768      1.4691   ipcp
+xalancbmk         0.9977      1.0017      1.0052      1.0027      0.9992   streamer
+-- geomean --
+  ipcp         1.3262  <- best fixed
+  bingo        1.2468
+  spp_dev2     1.2408
+  streamer     1.2382
+  stride       1.1168
+  BEST PER TRACE 1.3375
+  SELECTION GAIN +0.85%  (over best fixed 'ipcp')
+
+===== A vs B =====
+  selection gain A (common L2 placement)     : +3.58%
+  selection gain B (released/native placement): +0.85%
+
+===== IPCP per-level decomposition =====
+trace          L1only   L2only     both
+GemsFDTD       1.3129   1.0000   1.3022
+astar          1.0069   1.0000   1.0058
+bwaves         1.9997   1.0000   2.0356
+gcc            1.0114   1.0004   1.0138
+lbm            1.3403   1.0001   1.3776
+leslie3d       1.8353   1.0000   1.9032
+libquantum     1.7104   0.9999   1.7692
+mcf            1.1226   1.0000   1.1324
+milc           1.6649   1.0000   1.6989
+omnetpp        1.0717   1.0001   1.1091
+sjeng          0.9992   1.0000   0.9994
+soplex         1.3800   1.0000   1.4691
+xalancbmk      1.0003   1.0000   0.9992
+  (The released Pythia IPCP L2 module is near-inert without metadata from its L1 classifier; this does not make IPCP's L1-only form invalid.)

@@ -1,0 +1,44 @@
+======================================================================
+SELECTION GAINS (ONE AXIS AT A TIME)
+These are not a joint best-case selection across all experimental axes.
+======================================================================
+
+[prefetcher choice - Basis A (common L2 placement; IPCP ineligible)]
+  best fixed: bingo (1.2468)  best per trace 1.2914  selection gain +3.58%
+  raw argmax counts: {'bingo': 6, 'spp_dev2': 3, 'streamer': 3, 'stride': 1}
+  decisive argmax counts (winner margin > 1.00%): {'streamer': 2, 'bingo': 3, 'spp_dev2': 1}
+  near-ties (winner margin <= 1.00%): 7/13
+    GemsFDTD bingo/spp_dev2 0.52%, astar spp_dev2/streamer 0.00%, gcc bingo/streamer 0.30%, leslie3d spp_dev2/bingo 0.78%, mcf stride/streamer 0.78%, sjeng bingo/spp_dev2 0.10%, xalancbmk streamer/stride 0.24%
+
+[prefetcher choice - Basis B (released/native placements)]
+  best fixed: ipcp (1.3262)  best per trace 1.3375  selection gain +0.85%
+  raw argmax counts: {'ipcp': 8, 'bingo': 4, 'streamer': 1}
+  decisive argmax counts (winner margin > 1.00%): {'ipcp': 6, 'bingo': 3}
+  near-ties (winner margin <= 1.00%): 4/13
+    astar ipcp/spp_dev2 0.20%, gcc ipcp/bingo 0.21%, sjeng bingo/spp_dev2 0.10%, xalancbmk streamer/stride 0.24%
+
+[degree - stride]
+  best fixed degree: 8 (1.2182)  best per trace 1.2312  selection gain +1.07%
+
+[degree - streamer]
+  best fixed degree: default(5) (1.2382)  best per trace 1.2630  selection gain +2.00%
+
+[SPP pf x fill grid]
+  best fixed: pf20_fill50 (1.2858)  best per trace 1.2886  selection gain +0.22%
+
+======================================================================
+SELECTION GAIN FOR DEFAULT-PREFETCHER-RESPONSE COHORT
+criterion: best default Basis-A speedup >= 1.200x
+cohort (7/13): GemsFDTD, bwaves, lbm, leslie3d, libquantum, milc, soplex
+======================================================================
+  Basis A: best bingo (1.5091) best per trace 1.5664 selection gain +3.80%
+
+======================================================================
+BINGO PHT-ENTRY CURVE (pht_size; not whole-prefetcher storage)
+======================================================================
+    pht_size  geomean speedup
+        1024           1.2442
+        2048           1.2465
+   4096(def)           1.2468
+        8192           1.2505
+  This local curve changes PHT entry count only; it does not quantify total storage, area, or access cost.

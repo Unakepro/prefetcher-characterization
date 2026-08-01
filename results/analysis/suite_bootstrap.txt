@@ -1,0 +1,11 @@
+== deterministic trace-resampling suite-composition diagnostic ==
+traces=13 resamples=10000 seed=20260728
+Interpret the interval as sensitivity to this observed trace suite, not as a population confidence interval.
+
+[Basis A: common L2 placement]
+  observed selection gain: 3.58%  bootstrap median: 2.56%  central 95% interval: [0.54%, 4.62%]
+  best-fixed selection frequency: bingo 48.4%, spp_dev2 28.1%, streamer 23.5%
+
+[Basis B: released/native placements]
+  observed selection gain: 0.85%  bootstrap median: 0.79%  central 95% interval: [0.12%, 1.83%]
+  best-fixed selection frequency: ipcp 99.3%, bingo 0.7%

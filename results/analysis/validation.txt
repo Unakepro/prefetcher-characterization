@@ -1,0 +1,4 @@
+PASS simulator outputs: 780/780 present
+PASS completed outputs: 780/780 contain final IPC
+PASS all-configuration CSV: 741 data rows
+PASS default-comparison CSV: 78 data rows
