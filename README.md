@@ -103,9 +103,11 @@ The main observations are:
   trace. On average across all traces, however, choosing a separate setting
   for every trace adds only a small improvement over one good fixed setting.
 
-The [Basis-B figure](results/analysis/selection_gain_basis_B.png) includes IPCP
-using both L1D and L2. Detailed numerical results are in
-[`docs/FINDINGS.md`](docs/FINDINGS.md).
+Basis B includes IPCP using both L1D and L2:
+
+![Prefetchers using their original implementations](results/analysis/selection_gain_basis_B.png)
+
+Detailed numerical results are in [`docs/FINDINGS.md`](docs/FINDINGS.md).
 
 ## Experiment stages
 

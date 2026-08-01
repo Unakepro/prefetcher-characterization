@@ -103,9 +103,15 @@ def main():
     fig, (ax1, ax2) = plt.subplots(
         1,
         2,
-        figsize=(16, 6.2),
-        gridspec_kw={"width_ratios": [3.4, 1]},
-        constrained_layout=True,
+        figsize=(17.2, 7.2),
+        gridspec_kw={"width_ratios": [3.15, 1.25]},
+    )
+    fig.subplots_adjust(
+        left=0.06,
+        right=0.975,
+        top=0.84,
+        bottom=0.23,
+        wspace=0.18,
     )
     x = np.arange(len(traces)); w = 0.8 / len(prefs)
     for i, p in enumerate(prefs):
@@ -117,19 +123,22 @@ def main():
             label=p,
             color=COLORS[p],
         )
-    # Mark the best tested result for each trace.
-    ax1.scatter(x, [best_by_trace[t] for t in traces], marker="_", s=600,
-                color="black", zorder=5, label="best per trace")
     ax1.axhline(1.0, color="#666666", ls="--", lw=1.0)
     ax1.set_xticks(x)
-    ax1.set_xticklabels(traces, rotation=35, ha="right", rotation_mode="anchor")
+    ax1.set_xticklabels(traces, rotation=32, ha="right", rotation_mode="anchor")
+    ax1.tick_params(axis="x", pad=7)
     ax1.set_ylabel("speedup vs no-prefetch")
     ax1.set_title("Per-trace normalized performance", loc="left", weight="bold")
     ax1.grid(axis="y", color="#E5E5E5", lw=0.8)
     ax1.set_axisbelow(True)
-    ax1.legend(fontsize=9, ncol=3, frameon=False, loc="upper right")
+    ax1.legend(fontsize=9, ncol=len(prefs), frameon=False, loc="upper right")
+    ax1.set_ylim(0, max(best_by_trace.values()) + 0.16)
 
     order = sorted(prefs, key=lambda p: geo[p])
+    lower = min([1.0] + list(geo.values())) - 0.025
+    data_max = max([best_per_trace_geomean] + list(geo.values()))
+    upper = data_max + 0.085
+    label_x = upper - 0.012
     for position, p in enumerate(order):
         value = geo[p]
         left = min(1.0, value)
@@ -142,34 +151,28 @@ def main():
             alpha=1.0 if p == best_fixed else 0.72,
         )
         ax2.text(
-            value + 0.006,
+            label_x,
             position,
             f"{value:.3f}",
             va="center",
-            ha="left",
+            ha="right",
             fontsize=9,
             weight="bold" if p == best_fixed else "normal",
         )
     ax2.axvline(1.0, color="#666666", ls="--", lw=1.0)
     ax2.axvline(best_per_trace_geomean, color="black", ls=":", lw=1.5)
-    ax2.text(
-        best_per_trace_geomean,
-        len(order)-0.65,
-        f"best per trace {best_per_trace_geomean:.3f}",
-        fontsize=8,
-        ha="right",
-        va="bottom",
-    )
     ax2.set_yticks(range(len(order)))
     ax2.set_yticklabels(order)
+    ax2.tick_params(axis="y", pad=6)
     ax2.set_xlabel("geomean speedup")
     ax2.set_title(
-        f"Suite aggregate\nselection gain {selection_gain*100:.2f}%",
+        "Suite aggregate\n"
+        f"Best per trace: {best_per_trace_geomean:.3f}\n"
+        f"Selection gain: {selection_gain*100:.2f}%",
         loc="left",
         weight="bold",
+        pad=10,
     )
-    lower = min([1.0] + list(geo.values())) - 0.025
-    upper = max([best_per_trace_geomean] + list(geo.values())) + 0.045
     ax2.set_xlim(lower, upper)
     ax2.grid(axis="x", color="#E5E5E5", lw=0.8)
     ax2.set_axisbelow(True)
@@ -178,17 +181,18 @@ def main():
         f"Basis {a.basis} - {BASIS_LABELS[a.basis]}",
         fontsize=16,
         weight="bold",
+        y=0.955,
     )
     fig.text(
         0.5,
-        -0.01,
+        0.025,
         "13 selected SPEC CPU2006 trace windows - matched no-prefetch "
         "baselines - 50M warmup + 150M measured instructions",
         ha="center",
         fontsize=9,
         color="#555555",
     )
-    fig.savefig(a.out, dpi=150, bbox_inches="tight", facecolor="white")
+    fig.savefig(a.out, dpi=150, facecolor="white")
     print(f"\n-> wrote {a.out}")
 
 if __name__ == "__main__":
