@@ -1,0 +1,14 @@
+trace,filename,md5,url
+leslie3d,437.leslie3d-134B.champsimtrace.xz,b43e39900fdf11cef8988ae3e6ddc04d,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/437.leslie3d-134B.champsimtrace.xz
+mcf,429.mcf-184B.champsimtrace.xz,8cc3058f7f3d673105cad1cedd8d7d1f,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/429.mcf-184B.champsimtrace.xz
+bwaves,410.bwaves-1963B.champsimtrace.xz,e6cdcf0800844aea009f0d10d7da5bb4,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/410.bwaves-1963B.champsimtrace.xz
+gcc,403.gcc-16B.champsimtrace.xz,f1863ec81a003aaca3758b6e5c7d876a,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/403.gcc-16B.champsimtrace.xz
+omnetpp,471.omnetpp-188B.champsimtrace.xz,b4e9b638b0ade94c8aa432ce293c7a2f,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/471.omnetpp-188B.champsimtrace.xz
+xalancbmk,483.xalancbmk-716B.champsimtrace.xz,56a4ecd5453c2d0ced3df4be5dbe0a02,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/483.xalancbmk-716B.champsimtrace.xz
+astar,473.astar-153B.champsimtrace.xz,545209569786ca8fe171420b21de847b,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/473.astar-153B.champsimtrace.xz
+soplex,450.soplex-247B.champsimtrace.xz,d0cc282741cfbd02d4468226833c8320,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/450.soplex-247B.champsimtrace.xz
+lbm,470.lbm-1274B.champsimtrace.xz,ffff31ae0e6bbe57847863f28c5f7e4d,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/470.lbm-1274B.champsimtrace.xz
+libquantum,462.libquantum-714B.champsimtrace.xz,077f0d9189e7ff31a5b5a2dbe028d91b,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/462.libquantum-714B.champsimtrace.xz
+GemsFDTD,459.GemsFDTD-765B.champsimtrace.xz,196d393fbcae83abe29f7bd869cc983a,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/459.GemsFDTD-765B.champsimtrace.xz
+milc,433.milc-127B.champsimtrace.xz,bad1a4a2eb5d815dd7c188bf12963b7d,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/433.milc-127B.champsimtrace.xz
+sjeng,458.sjeng-283B.champsimtrace.xz,334ef91f4dfbb7f4108c6695978c4cf5,https://dpc3.compas.cs.stonybrook.edu/champsim-traces/speccpu/458.sjeng-283B.champsimtrace.xz

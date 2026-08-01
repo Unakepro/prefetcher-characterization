@@ -1,0 +1,4 @@
+# Only the plotting script needs third-party Python packages.
+# Core collection, validation, and textual analyses use the standard library.
+matplotlib>=3.5,<4
+numpy>=1.21,<3

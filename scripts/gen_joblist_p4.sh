@@ -7,10 +7,7 @@ CFG="$PYTHIA_HOME/config"
 JOBLIST="${JOBLIST:-$PYTHIA_HOME/experiments/joblist_p4.txt}"
 mkdir -p "$(dirname "$JOBLIST")"
 
-TR_NAMES=(leslie3d mcf bwaves gcc omnetpp xalancbmk astar soplex lbm libquantum GemsFDTD milc sjeng)
-TR_FILES=(437.leslie3d-134B 429.mcf-184B 410.bwaves-1963B 403.gcc-16B \
-          471.omnetpp-188B 483.xalancbmk-716B 473.astar-153B 450.soplex-247B \
-          470.lbm-1274B 462.libquantum-714B 459.GemsFDTD-765B 433.milc-127B 458.sjeng-283B)
+source "$PYTHIA_HOME/scripts/load_trace_manifest.sh"
 # name | flags   (name encodes placement so .out files don't collide)
 CF_NAMES=(ipcp_L2only ipcp_L1only stride_L1)
 CF_FLAGS=(
@@ -20,8 +17,8 @@ CF_FLAGS=(
 )
 
 > "$JOBLIST"
-for j in "${!TR_NAMES[@]}"; do
-  tname="${TR_NAMES[$j]}"; tfile="$TRACEDIR/${TR_FILES[$j]}.champsimtrace.xz"
+for j in "${!TRACE_NAMES[@]}"; do
+  tname="${TRACE_NAMES[$j]}"; tfile="$TRACEDIR/${TRACE_FILES[$j]}"
   [ -f "$tfile" ] || echo "WARN: missing $tfile" >&2
   for i in "${!CF_NAMES[@]}"; do
     echo "${tname}|${tfile}|${CF_NAMES[$i]}|${CF_FLAGS[$i]}" >> "$JOBLIST"

@@ -1,9 +1,11 @@
 #!/bin/bash
+
 set -u
 : "${PYTHIA_HOME:?set PYTHIA_HOME}"
 TRACEDIR="${TRACEDIR:-$PYTHIA_HOME/traces}"
 CFG="$PYTHIA_HOME/config"
-JOBLIST="${JOBLIST:-$PYTHIA_HOME/experiments/joblist.txt}"
+SIZE="${SIZE:?set SIZE to 1MB or 4MB}"
+JOBLIST="${JOBLIST:-$PYTHIA_HOME/experiments/joblist_p8_${SIZE}.txt}"
 mkdir -p "$(dirname "$JOBLIST")"
 
 source "$PYTHIA_HOME/scripts/load_trace_manifest.sh"
@@ -20,9 +22,8 @@ esac; }
 > "$JOBLIST"
 for j in "${!TRACE_NAMES[@]}"; do
   tname="${TRACE_NAMES[$j]}"; tfile="$TRACEDIR/${TRACE_FILES[$j]}"
-  [ -f "$tfile" ] || echo "WARN: missing $tfile" >&2
   for p in "${PF_NAMES[@]}"; do
-    echo "${tname}|${tfile}|${p}|$(pf_flags "$p")" >> "$JOBLIST"
+    echo "${tname}|${tfile}|${p}_${SIZE}|$(pf_flags "$p")" >> "$JOBLIST"
   done
 done
 echo "wrote $JOBLIST ($(wc -l < "$JOBLIST") jobs)"

@@ -13,7 +13,7 @@ __pycache__/
 *.pyc
 *.swp
 .DS_Store
+/.local/
 /experiments/joblist*.txt
 /results/debug/
-/results/hetero/
-/oracle_gap.png
+/results/*.png
